@@ -1,0 +1,289 @@
+.cluster-section {
+  background-color: var(--bg-secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+.cluster-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.cluster-title {
+  margin-bottom: 1rem;
+}
+
+.cluster-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* Canvas Area */
+.cluster-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  user-select: none;
+}
+
+.cluster-depth-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 113, 227, 0.03) 0%, transparent 60%),
+    radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px;
+  pointer-events: none;
+}
+
+/* Floating Nodes Layer */
+.cluster-nodes-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.cluster-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.15rem 0.6rem 0.6rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.3s var(--ease-apple), border-color 0.3s, background-color 0.3s;
+  animation: nodeFloat 6s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes nodeFloat {
+  0%, 100% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -12px;
+  }
+}
+
+.cluster-node:hover,
+.cluster-node.is-selected {
+  background-color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px -8px rgba(0, 113, 227, 0.22);
+  z-index: 20;
+}
+
+.node-icon-bubble {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.cluster-node:hover .node-icon-bubble,
+.cluster-node.is-selected .node-icon-bubble {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.node-pill-label {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.node-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.cluster-node.is-selected .node-pulse {
+  opacity: 0.4;
+  animation: pulseRipples 2s infinite ease-out;
+}
+
+@keyframes pulseRipples {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+/* Floating Inspector Card */
+.cluster-inspector-card {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 2.5rem;
+  width: 380px;
+  max-width: calc(100% - 3rem);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.85rem;
+  box-shadow: var(--shadow-popup);
+  z-index: 30;
+  animation: inspectorAppear 0.4s var(--ease-spring);
+}
+
+@keyframes inspectorAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.inspector-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.inspector-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.inspector-close-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.inspector-id {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+
+.inspector-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.inspector-tagline {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.inspector-description {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.inspector-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.inspector-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.spec-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.inspector-action {
+  display: flex;
+}
+
+.inspector-btn {
+  width: 100%;
+  font-size: 0.88rem;
+  padding: 0.7rem 1.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .cluster-canvas-container {
+    height: 720px;
+  }
+  
+  .cluster-inspector-card {
+    right: 1.5rem;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    width: auto;
+    max-width: none;
+    padding: 1.25rem;
+  }
+
+  .node-veneer { top: 60% !important; left: 25% !important; }
+  .node-aligner { top: 55% !important; left: 75% !important; }
+}
+
+@media (max-width: 600px) {
+  .cluster-node {
+    padding: 0.4rem 0.8rem 0.4rem 0.4rem;
+  }
+  
+  .node-icon-bubble {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .node-pill-label {
+    font-size: 0.75rem;
+  }
+
+  .node-scan { top: 12% !important; left: 30% !important; }
+  .node-implant { top: 22% !important; left: 70% !important; }
+  .node-cbct { top: 35% !important; left: 45% !important; }
+  .node-veneer { top: 48% !important; left: 28% !important; }
+  .node-aligner { top: 58% !important; left: 72% !important; }
+}

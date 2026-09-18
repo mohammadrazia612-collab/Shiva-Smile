@@ -1,0 +1,146 @@
+.about-clinic-section {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.about-clinic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-visual-col {
+  position: relative;
+}
+
+.about-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  height: clamp(440px, 60vh, 580px);
+}
+
+.about-clinic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-spring);
+}
+
+.about-visual-col:hover .about-clinic-img {
+  transform: scale(1.02);
+}
+
+.about-floating-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-headline {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.about-lead-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-pillar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pillar-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.pillar-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.pillar-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.about-action-row {
+  display: flex;
+}
+
+.about-cta-btn {
+  padding: 0.85rem 2rem;
+}
+
+@media (max-width: 1024px) {
+  .about-clinic-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image-wrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

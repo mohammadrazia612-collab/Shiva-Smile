@@ -1,0 +1,64 @@
+.trust-benefits-section {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 3.5rem 0;
+}
+
+.trust-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.trust-item-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 0.5rem;
+}
+
+.trust-icon-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  transition: transform 0.25s var(--ease-spring);
+}
+
+.trust-item-box:hover .trust-icon-ring {
+  transform: scale(1.08);
+}
+
+.trust-item-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.trust-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .trust-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .trust-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

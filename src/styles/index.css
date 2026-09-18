@@ -1,0 +1,225 @@
+@import './design-tokens.css';
+
+/* Universal Reset & Base Settings */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 16px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Typography Scale Inspired by Apple Keynotes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.section-spacing {
+  padding-top: clamp(5rem, 9vw, 9rem);
+  padding-bottom: clamp(5rem, 9vw, 9rem);
+}
+
+.section-spacing-compact {
+  padding-top: clamp(3.5rem, 6vw, 6rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+}
+
+/* Apple Pill Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.28s var(--ease-apple);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.28);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background-color: #eaeaea;
+  transform: scale(1.02);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0;
+  position: relative;
+}
+
+.btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--accent);
+  transition: width 0.3s var(--ease-apple);
+}
+
+.btn-link:hover::after {
+  width: 100%;
+}
+
+/* Badges & Pills */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Glassmorphism Frosted Header */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+}
+
+/* Scroll reveal animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease-spring), transform 0.85s var(--ease-spring);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .reveal-on-scroll,
+  .btn,
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

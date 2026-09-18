@@ -1,0 +1,130 @@
+.footer-root {
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-light);
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.footer-mission {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 360px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact-snippet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links-list a,
+.footer-action-link {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.footer-links-list a:hover,
+.footer-action-link:hover {
+  color: var(--accent);
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+.footer-scroll-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-scroll-top-btn:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 960px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

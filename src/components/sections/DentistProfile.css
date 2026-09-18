@@ -1,0 +1,139 @@
+.dentist-section {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+}
+
+.dentist-card {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+}
+
+.dentist-media-col {
+  position: relative;
+  min-height: 560px;
+  background-color: #eeeef2;
+}
+
+.dentist-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.dentist-portrait-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dentist-content-col {
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dentist-name {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.dentist-qualifications {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.dentist-experience {
+  font-size: 0.95rem;
+  color: var(--text-tertiary);
+  margin-bottom: 1.75rem;
+}
+
+.dentist-quote {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.dentist-bio {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.dentist-credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.credentials-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.35rem;
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.credential-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.dentist-actions {
+  display: flex;
+}
+
+@media (max-width: 960px) {
+  .dentist-card {
+    grid-template-columns: 1fr;
+  }
+
+  .dentist-media-col {
+    min-height: 420px;
+  }
+}

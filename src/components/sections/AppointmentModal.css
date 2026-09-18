@@ -1,0 +1,262 @@
+.appointment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.appointment-modal-sheet {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  max-width: 680px;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-light);
+  animation: modalSlideUp 0.3s var(--ease-spring);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  z-index: 10;
+}
+
+.modal-close-icon:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.modal-header-block {
+  margin-bottom: 2rem;
+}
+
+.form-modal-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-modal-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Form Styles */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.field-input {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s, background-color 0.2s;
+  outline: none;
+}
+
+.field-input:focus {
+  border-color: var(--accent);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12);
+}
+
+.field-input.has-error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: #ef4444;
+  margin-top: 0.35rem;
+}
+
+.field-select {
+  cursor: pointer;
+}
+
+.field-textarea {
+  resize: vertical;
+}
+
+.form-submit-row {
+  margin-top: 0.5rem;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1rem;
+}
+
+.form-disclaimer-note {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+/* Success State */
+.appointment-success-view {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.success-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: rgba(0, 113, 227, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.success-check-icon {
+  color: var(--accent);
+}
+
+.success-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.success-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 1.75rem;
+}
+
+.success-receipt-box {
+  width: 100%;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.receipt-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.receipt-label {
+  color: var(--text-tertiary);
+}
+
+.receipt-code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.receipt-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.success-notice {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.success-close-btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

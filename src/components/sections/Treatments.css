@@ -1,0 +1,340 @@
+.treatments-section {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.treatments-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+}
+
+.treatments-title {
+  margin-bottom: 0.75rem;
+}
+
+.treatments-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* Selector Tabs */
+.treatments-nav-scroll {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  scrollbar-width: none;
+}
+
+.treatments-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.treatments-nav-bar {
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-light);
+}
+
+.treatment-tab-btn {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s var(--ease-apple);
+}
+
+.treatment-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.treatment-tab-btn.is-active {
+  background-color: #ffffff;
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Stage Card */
+.treatment-stage-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: stageFadeIn 0.4s var(--ease-spring);
+}
+
+@keyframes stageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.treatment-stage-content {
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.treatment-stage-eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.treatment-stage-headline {
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.treatment-stage-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.treatment-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.treatment-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.treatment-bullet-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.treatment-meta {
+  margin-bottom: 2.5rem;
+}
+
+.treatment-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.treatment-duration-badge strong {
+  color: var(--text-primary);
+}
+
+.treatment-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.treatment-primary-btn {
+  padding: 0.85rem 1.8rem;
+}
+
+.treatment-secondary-btn {
+  padding: 0.85rem 1.6rem;
+}
+
+/* Stage Visual */
+.treatment-stage-visual {
+  position: relative;
+  min-height: 480px;
+  background-color: #f0f0f3;
+  overflow: hidden;
+}
+
+.treatment-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-spring);
+}
+
+.treatment-stage-card:hover .treatment-visual-img {
+  transform: scale(1.03);
+}
+
+.treatment-visual-overlay {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.treatment-badge-tag {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Modal styles */
+.treatment-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.treatment-modal-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  max-width: 580px;
+  width: 100%;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-popup);
+  border: 1px solid var(--border-light);
+  animation: scaleIn 0.3s var(--ease-spring);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.96) translateY(8px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.treatment-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.modal-lead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.modal-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-subheading {
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.modal-list {
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.modal-duration-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.modal-duration-box strong {
+  color: var(--text-primary);
+}
+
+.modal-action-btn {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .treatment-stage-card {
+    grid-template-columns: 1fr;
+  }
+
+  .treatment-stage-visual {
+    order: -1;
+    min-height: 320px;
+  }
+}
